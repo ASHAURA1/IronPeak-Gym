@@ -1,0 +1,6 @@
+{
+  "name": "IronPeak Fitness",
+  "description": "Premium athletic gym website in Mumbai with dynamic workout tracking, real-time hours, and an interactive AI Training Copilot for custom routines.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

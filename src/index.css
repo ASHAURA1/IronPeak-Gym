@@ -1,0 +1,253 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Figtree:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #070707;
+  --color-bg-2: #0D0D0D;
+  --color-lime: #C8FF00;
+  --color-lime-dim: #A3CF00;
+  --color-red: #FF3D00;
+  --color-muted-grey: #6B6B6B;
+  --color-dim-grey: #2A2A2A;
+  
+  --font-display: 'Archivo Black', sans-serif;
+  --font-body: 'Figtree', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+}
+
+:root {
+  --bg: #070707;
+  --bg-2: #0D0D0D;
+  --lime: #C8FF00;
+  --lime-dim: #A3CF00;
+  --red: #FF3D00;
+  --white: #FFFFFF;
+  --muted: #6B6B6B;
+  --dim: #2A2A2A;
+
+  /* GLASS SYSTEM (STRONG — non-negotiable) */
+  --glass-1: rgba(255, 255, 255, 0.04);
+  --glass-2: rgba(255, 255, 255, 0.08);
+  --glass-lime: rgba(200, 255, 0, 0.06);
+  --border-1: rgba(255, 255, 255, 0.08);
+  --border-lime: rgba(200, 255, 0, 0.20);
+  --blur-main: 28px;
+  --blur-hero: 40px;
+
+  /* FONTS */
+  --font-display: 'Archivo Black', sans-serif;
+  --font-body: 'Figtree', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+}
+
+/* Base structural styles */
+body {
+  background-color: var(--bg);
+  color: var(--white);
+  font-family: var(--font-body);
+  line-height: 1.7;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* TYPOGRAPHY SCALE IN CLAMP */
+h1, .h1-display {
+  font-family: var(--font-display);
+  font-size: clamp(44px, 8vw, 96px);
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+}
+
+h2, .h2-display {
+  font-family: var(--font-display);
+  font-size: clamp(30px, 5vw, 56px);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+}
+
+h3 {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+}
+
+.font-mono-tag {
+  font-family: var(--font-mono);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+/* STRONG GLASSMORPHISM CARDS */
+.glass-card,
+.strong-glass-card {
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-top: 1px solid rgba(255,255,255,0.18);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4), 
+              inset 0 1px 0 rgba(255,255,255,0.08),
+              inset 0 -1px 0 rgba(0,0,0,0.2);
+  border-radius: 0px; /* Sharp edges */
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  will-change: transform, border-color, background-color, box-shadow;
+}
+
+.glass-card:hover,
+.strong-glass-card:hover {
+  background: rgba(255,255,255,0.07);
+  border-top: 1px solid rgba(200,255,0,0.35);
+  border-color: rgba(200,255,0,0.18);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.5), 
+              inset 0 1px 0 rgba(255,255,255,0.10),
+              inset 0 -1px 0 rgba(0,0,0,0.2);
+}
+
+.featured-pricing-card {
+  background: rgba(200, 255, 0, 0.04);
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+  border: 1px solid rgba(200, 255, 0, 0.20);
+  border-top: 1px solid rgba(200, 255, 0, 0.40);
+  box-shadow: 0 8px 32px rgba(200, 255, 0, 0.1), 
+              inset 0 1px 0 rgba(255, 255, 255, 0.08),
+              inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 0px;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  will-change: transform, border-color, background-color, box-shadow;
+}
+
+.featured-pricing-card:hover {
+  background: rgba(200, 255, 0, 0.07);
+  border-top: 1px solid rgba(200, 255, 0, 0.55);
+  border-color: rgba(200, 255, 0, 0.30);
+  box-shadow: 0 16px 48px rgba(200, 255, 0, 0.18), 
+              inset 0 1px 0 rgba(255, 255, 255, 0.10),
+              inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* ACTIVE ACCENT HOVER */
+.glass-card-hover-lime {
+  position: relative;
+}
+.glass-card-hover-lime::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: var(--lime);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.glass-card-hover-lime:hover::after {
+  opacity: 1;
+}
+
+/* COGNITIVE GRAIN OVERLAY */
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.025;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* ORB DRIFT ANIMATIONS */
+.glow-orb-lime {
+  position: fixed;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(200, 255, 0, 0.06) 0%, transparent 70%);
+  top: -200px;
+  left: -100px;
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: 10;
+  animation: orbDrift 12s ease-in-out infinite alternate;
+}
+
+.glow-orb-red {
+  position: fixed;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(255, 61, 0, 0.04) 0%, transparent 70%);
+  bottom: -150px;
+  right: -100px;
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: 10;
+  animation: orbDrift 12s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes orbDrift {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(40px, 20px) scale(1.08); }
+}
+
+/* SCROLL REVEAL ANIMATIONS */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s cubic-bezier(0.215, 0.61, 0.355, 1), 
+              transform 0.7s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* WHATSAPP PULSE */
+@keyframes waPulse {
+  0%, 100% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35); }
+  50% { box-shadow: 0 4px 48px rgba(37, 211, 102, 0.65); }
+}
+
+.wa-pulse-button {
+  animation: waPulse 2.5s ease-in-out infinite;
+}
+
+/* BLINKING DOT */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.2; }
+}
+.blink-dot {
+  animation: blink 1.4s infinite;
+}
+
+/* SCROLLBAR CUSTOMIZATION */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #070707;
+}
+::-webkit-scrollbar-thumb {
+  background: #1a1a1a;
+  border: 2px solid #070707;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--lime);
+}
+
+/* REDUCED MOTION SAFEGUARDS */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+
