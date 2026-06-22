@@ -725,12 +725,12 @@ export default function App() {
               </div>
 
               {/* Card Join Action */}
-              <button 
-                onClick={() => setIsChatOpen(true)}
-                className="w-full bg-lime hover:bg-[#D4FF1A] text-bg font-body font-bold text-xs tracking-wider uppercase py-3.5 flex items-center justify-center gap-1 cursor-pointer transition-all hover:translate-y-[-1px]"
+              <a 
+                href="#trial"
+                className="w-full bg-lime hover:bg-[#D4FF1A] text-bg font-body font-bold text-xs tracking-wider uppercase py-3.5 flex items-center justify-center gap-1 cursor-pointer transition-all hover:translate-y-[-1px] no-underline"
               >
-                ASK COACH TO MODIFY THIS →
-              </button>
+                JOIN THE CHALLENGE →
+              </a>
             </div>
           </div>
 
@@ -1352,34 +1352,7 @@ export default function App() {
       </footer>
 
 
-      {/* PERSISTENT FLOATING INTERACTION COMMAND BRIDGE (BOTTOM DOCK) */}
-      <div className="fixed bottom-6 left-6 z-[99] flex items-center gap-2">
-        {/* AI Chat button trigger */}
-        <button 
-          onClick={() => {
-            setIsChatOpen(prev => !prev);
-            setIsImageLabOpen(false);
-          }}
-          className={`flex items-center gap-2 px-4 py-3 rounded-full font-body font-bold text-xs tracking-wider uppercase shadow-xl transition-all duration-300 ${isChatOpen ? "bg-lime text-bg scale-102" : "bg-bg-2 border border-[rgba(255,255,255,0.12)] text-white hover:border-lime"}`}
-        >
-          <MessageSquare className="w-4 h-4 text-currentColor" />
-          <span>ASK COACH ARJUN</span>
-          {isChatLoading && <Loader2 className="w-3.5 h-3.5 animate-spin" />}
-        </button>
 
-        {/* AI Art creator button trigger */}
-        <button 
-          onClick={() => {
-            setIsImageLabOpen(prev => !prev);
-            setIsChatOpen(false);
-          }}
-          className={`flex items-center gap-2 px-4 py-3 rounded-full font-body font-bold text-xs tracking-wider uppercase shadow-xl transition-all duration-300 ${isImageLabOpen ? "bg-lime text-bg scale-102" : "bg-bg-2 border border-[rgba(255,255,255,0.12)] text-white hover:border-lime"}`}
-          title="Create athletic art"
-        >
-          <Image className="w-4 h-4 text-currentColor" />
-          <span className="hidden sm:inline">CREATIVE STUDIO</span>
-        </button>
-      </div>
 
 
       {/* FLOATING WHATSAPP GLOW BUTTON */}
