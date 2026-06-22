@@ -562,37 +562,7 @@ export default function App() {
           <div className="absolute bottom-0 left-0 w-full h-[20%] bg-gradient-to-t from-bg to-transparent"></div>
         </div>
 
-        {/* Floating equipment elements (3D Space effect) */}
-        <div 
-          className="absolute hidden md:block z-[4] font-bold text-[72px] opacity-10 filter blur-[0.5px] pointer-events-none"
-          style={{
-            top: "20%",
-            right: "8%",
-            transform: `perspective(400px) rotateX(15deg) rotateY(-20deg) translateY(${mousePos.y * 1.5}px) translateX(${mousePos.x * 1.5}px)`
-          }}
-        >
-          🏋️
-        </div>
-        <div 
-          className="absolute hidden md:block z-[4] font-bold text-[55px] opacity-8 filter blur-[1px] pointer-events-none"
-          style={{
-            bottom: "30%",
-            right: "22%",
-            transform: `perspective(400px) rotateX(12deg) rotateY(-15deg) translateY(${-mousePos.y * 1.8}px) translateX(${-mousePos.x * 1.8}px)`
-          }}
-        >
-          ⚙️
-        </div>
-        <div 
-          className="absolute hidden md:block z-[4] font-bold text-[34px] opacity-15 text-lime pointer-events-none"
-          style={{
-            top: "55%",
-            right: "6%",
-            transform: `perspective(400px) translateY(${mousePos.y * 2.2}px) translateX(${mousePos.x * 2.2}px)`
-          }}
-        >
-          ⚡
-        </div>
+
 
         {/* Content Container */}
         <div className="relative w-full max-w-[1320px] mx-auto z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center max-lg:overflow-hidden lg:overflow-visible">
